@@ -26,7 +26,7 @@ print(missing_values)
 hr_analysis_concat['gender'] = hr_analysis_concat['gender'].fillna('Unknown')
 hr_analysis_concat['enrolled_university'] = hr_analysis_concat['enrolled_university'].fillna('No Enrollment ')
 
-#Replaceing missing values for all other columns
+#Replaceing missing values for all other columns using numpy
 hr_analysis=hr_analysis_concat.fillna(0, inplace=True)
 
 #Confirm missing values have been populated
