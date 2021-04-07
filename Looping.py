@@ -23,7 +23,7 @@ missing_values=hr_analysis_concat.isnull().sum()
 print(missing_values)
 
 #Replaceing missing values for gender and enrolled university
-hr_analysis_concat['gender'] = hr_analysis_concat['gender'].fillna('Other')
+hr_analysis_concat['gender'] = hr_analysis_concat['gender'].fillna('Unknown')
 hr_analysis_concat['enrolled_university'] = hr_analysis_concat['enrolled_university'].fillna('No Enrollment ')
 
 #Replaceing missing values for all other columns using numpy
@@ -34,4 +34,11 @@ missing_values=hr_analysis_concat.isnull().sum()
 print(missing_values)
 
 print(hr_analysis_concat.info())
+
+print(hr_analysis_concat['experience'].unique())
+
+#Changing values in a column
+for i, row in hr_analysis_concat.iterrows():
+    print(i)
+    print(row)
 
