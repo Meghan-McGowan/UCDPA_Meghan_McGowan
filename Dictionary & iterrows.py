@@ -35,5 +35,17 @@ print(missing_values)
 
 print(hr_analysis_concat.info())
 
+#Create a Dictionary of Lists
+hr_dictionary = {'gender': ['male', 'female', 'other'],
+                 'relevent_experience' : ['has experience', 'has experience', 'no experience'],
+                 'education_level' : ['Phd', 'Masters', 'High School']}
+print(hr_dictionary['gender'])
 
+#Create a dataframe
+hrdict_df = pd.DataFrame(hr_dictionary)
+print(hrdict_df)
+
+#Ues iterrows to iterate over rows
+for i, row in hrdict_df.iterrows():
+    print(i,row)
 
