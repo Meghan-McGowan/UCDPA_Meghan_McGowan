@@ -35,7 +35,7 @@ print(missing_values)
 
 print(hr_analysis_concat.info())
 
-#Create a two Lists
+#Create Lists
 female_education1 = {'education_level': 'Masters', 'major-disciplne': 'STEM'}
 female_education2 = {'education_level': 'Graduate', 'major-disciplne': 'Business Degree'}
 female_education3 = {'education_level': 'Graduate', 'major-disciplne': 'STEM'}
