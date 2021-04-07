@@ -36,8 +36,15 @@ print(missing_values)
 print(hr_analysis_concat.info())
 
 #Groupby gender and training hours
-gender_training = hr_analysis_concat[["gender","training_hours"]].groupby(["gender"], as_index = False).mean() .sort_values(by="training_hours", ascending=False)
+gender_training = hr_analysis_concat.groupby(["gender"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
 print(gender_training)
 
-#Groupby gender and training hours
+#Groupby relevent experience and training hours
+relevent_experience_training = hr_analysis_concat.groupby(["relevent_experience"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
+print(relevent_experience_training)
+
+#Groupby gender, training hours and target
+gender_training_target = hr_analysis_concat.groupby(["gender","target"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
+print(gender_training_target)
+
 
