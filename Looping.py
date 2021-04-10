@@ -22,12 +22,12 @@ print(hr_analysis_concat.info())
 missing_values=hr_analysis_concat.isnull().sum()
 print(missing_values)
 
-#Replaceing missing values for gender and enrolled university
+#Replaceing missing values for gender, enrolled university and major discipline
 hr_analysis_concat['gender'] = hr_analysis_concat['gender'].fillna('Other')
 hr_analysis_concat['enrolled_university'] = hr_analysis_concat['enrolled_university'].fillna('no_enrollment')
-hr_analysis_concat['major_discipline'] = hr_analysis_concat['major_discipline'].fillna('NA')
+hr_analysis_concat['major_discipline'] = hr_analysis_concat['major_discipline'].fillna('No Major')
 
-#Replaceing missing values for all other columns using numpy
+#Replaceing missing values for all other columns
 hr_analysis=hr_analysis_concat.fillna(0, inplace=True)
 
 #Confirm missing values have been populated
