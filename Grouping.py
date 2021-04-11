@@ -50,6 +50,10 @@ print(missing_values)
 
 print(hr_analysis_concat.info())
 
+#Groupby gender and target
+gender_target =hr_analysis_concat.groupby(['gender','target']).agg({'target': 'count'})
+print(gender_target)
+
 #Groupby gender and training hours
 gender_training = hr_analysis_concat.groupby(["gender"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
 print(gender_training)
