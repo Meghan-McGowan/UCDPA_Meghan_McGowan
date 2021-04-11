@@ -47,23 +47,11 @@ print(hr_analysis_concat['experience']. unique())
 hr_analysis_concat['last_new_job']. replace(['>4', 'never'],['5', '0'], inplace=True)
 print(hr_analysis_concat['last_new_job']. unique())
 
-#Groupby gender and target
-gender_target =hr_analysis_concat.groupby(['gender','target']).agg({'target': 'count'})
-print(gender_target)
-
 #Groupby gender and training hours
 gender_training = hr_analysis_concat.groupby(["gender"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
 print(gender_training)
 
-#Groupby relevent experience and training hours
-relevent_experience_training = hr_analysis_concat.groupby(["relevent_experience"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
-print(relevent_experience_training)
-
-#Groupby gender, training hours and target
-gender_training_target = hr_analysis_concat.groupby(["gender","target"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
-print(gender_training_target)
-
-#Show the average number of training hours completed by each gender
+#Show the average number of training hours completed by each gender in a pie chart
 labels = 'Male', 'Other', 'Female'
 mean = [65.346502, 65.298413, 65.250909]
 explode = ( 0.1,0 , 0)  # only "explode" the 2nd slice (i.e. 'Hogs')

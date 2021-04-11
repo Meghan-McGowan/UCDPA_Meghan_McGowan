@@ -47,24 +47,23 @@ print(hr_analysis_concat['experience']. unique())
 hr_analysis_concat['last_new_job']. replace(['>4', 'never'],['5', '0'], inplace=True)
 print(hr_analysis_concat['last_new_job']. unique())
 
-#Groupby gender and target
-gender_target =hr_analysis_concat.groupby(['gender','target']).agg({'target': 'count'})
-print(gender_target)
+#Groupby gender and relevent experience
+gender_experience =hr_analysis_concat.groupby(['gender','relevent_experience']).agg({'relevent_experience':'count'})
+print(gender_experience)
 
-#Show number of people searching for a job by gender
 labels = ['Female', 'Male', 'Other']
-not_searching = [1049, 11669, 3792]
-searching = [326, 3012, 1439]
+no_experience = [412, 3616, 1943]
+has_experience = [963, 11065, 3288]
 
 x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
-ax1 = ax.bar(x - width/2, not_searching, width, label='Not searching for a job')
-ax2 = ax.bar(x + width/2, searching, width, label='Searching for a job', color='g')
+ax1 = ax.bar(x - width/2, no_experience, width, label='No relevent experience ')
+ax2 = ax.bar(x + width/2, has_experience, width, label='Has relevent experience', color='g')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Number of People')
-ax.set_title('Target by gender')
+ax.set_title('Relevent Experience')
 ax.set_xticks(x)
 ax.set_xticklabels(labels)
 ax.legend()
@@ -75,3 +74,6 @@ ax.bar_label(ax2, padding=3)
 fig.tight_layout()
 
 plt.show()
+
+
+
