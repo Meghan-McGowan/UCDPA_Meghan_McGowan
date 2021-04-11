@@ -51,7 +51,7 @@ print(missing_values)
 print(hr_analysis_concat.info())
 
 #Groupby gender and target
-gender_target =hr_analysis_concat.groupby(['gender','target']).agg({'target': 'count'})
+gender_target =hr_analysis_concat.groupby(['gender','target']).agg({'target': 'count'}) 
 print(gender_target)
 
 #Groupby gender and training hours
