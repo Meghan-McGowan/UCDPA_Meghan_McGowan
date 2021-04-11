@@ -63,7 +63,7 @@ print(relevent_experience_training)
 gender_training_target = hr_analysis_concat.groupby(["gender","target"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
 print(gender_training_target)
 
-#Show who is searching for a job by gender
+#Show number of people searching for a job by gender
 labels = ['Female', 'Male', 'Other']
 not_searching = [1049, 11669, 3792]
 searching = [326, 3012, 1439]
