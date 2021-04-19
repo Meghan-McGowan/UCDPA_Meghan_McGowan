@@ -44,7 +44,7 @@ print(hr_analysis_concat['experience']. unique())
 hr_analysis_concat['last_new_job']. replace(['>4', 'never'],['5', '0'], inplace=True)
 print(hr_analysis_concat['last_new_job']. unique())
 
-#Create a Dictionary of Lists
+#Create a Dictionary of Lists from a subset of the data
 hr_dictionary = {'gender': ['male', 'female', 'other'],
                  'relevent_experience' : ['has experience', 'has experience', 'no experience'],
                  'education_level' : ['Phd', 'Masters', 'High School']}

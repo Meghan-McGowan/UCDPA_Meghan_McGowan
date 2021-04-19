@@ -41,6 +41,9 @@ np_education_level= np.array(['Graduate', 'High School', 'Masters', '0', 'Phd', 
 np_major_discipline= np.array(['STEM', 'No Major', 'Other', 'Business Degree', 'Arts', 'Humanities'])
 np_education_level_major = np.array([['Graduate', 'High School', 'Masters', '0', 'Phd', 'Primary School'],['STEM', 'No Major', 'Other', 'Business Degree', 'Arts', 'Humanities']])
 
+#Show the shape of the data
+#Show the first row of the np.array
+#Show the second row of the np.array
 print(np_education_level_major.shape)
 print(np_education_level_major[0])
 print(np_education_level_major[1])

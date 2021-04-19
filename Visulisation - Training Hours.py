@@ -51,16 +51,11 @@ print(hr_analysis_concat['last_new_job']. unique())
 gender_training = hr_analysis_concat.groupby(["gender"], as_index = False)[["training_hours"]].mean() .sort_values(by="training_hours", ascending=False)
 print(gender_training)
 
-#Show the average number of training hours completed by each gender in a pie chart
-labels = 'Male', 'Other', 'Female'
-mean = [65.346502, 65.298413, 65.250909]
-explode = ( 0.1,0 , 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+#Display training hours in a histogram
 
-fig1, ax1 = plt.subplots()
-ax1.pie(mean, explode=explode, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax1.set_title("Gender Training Hours")
+hist_training_hours= hr_analysis_concat['training_hours']
+plt.hist(hist_training_hours, rwidth=0.7,  bins=50)
+plt.xlabel('Training Hours')
+plt.ylabel('Number of People')
+plt.title('Training Hours')
 plt.show()
-
-

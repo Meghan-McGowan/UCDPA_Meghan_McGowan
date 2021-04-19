@@ -47,33 +47,40 @@ print(hr_analysis_concat['experience']. unique())
 hr_analysis_concat['last_new_job']. replace(['>4', 'never'],['5', '0'], inplace=True)
 print(hr_analysis_concat['last_new_job']. unique())
 
-#Groupby gender and relevent experience
-gender_experience =hr_analysis_concat.groupby(['gender','relevent_experience']).agg({'relevent_experience':'count'})
-print(gender_experience)
+#Groupby major discipline and count the majors
+major_level = hr_analysis_concat.groupby(["major_discipline"], as_index = False).count() .sort_values(by="major_discipline", ascending=False)
+print(major_level)
 
-labels = ['Female', 'Male', 'Other']
-no_experience = [412, 3616, 1943]
-has_experience = [963, 11065, 3288]
+#Show the % split of major discipline
+fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
 
-x = np.arange(len(labels))  # the label locations
-width = 0.35  # the width of the bars
+Majors = ["16113 STEM",
+          "3370 No_Major",
+          "749 Humanities",
+          "421 Other",
+          "364 Business_Degree",
+          "270 Arts"]
 
-fig, ax = plt.subplots()
-ax1 = ax.bar(x - width/2, no_experience, width, label='No relevent experience ')
-ax2 = ax.bar(x + width/2, has_experience, width, label='Has relevent experience', color='g')
-# Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Number of People')
-ax.set_title('Relevent Experience')
-ax.set_xticks(x)
-ax.set_xticklabels(labels)
-ax.legend()
+data = [float(x.split()[0]) for x in Majors]
+Major_Discipline = [x.split()[-1] for x in Majors]
 
-ax.bar_label(ax1, padding=3)
-ax.bar_label(ax2, padding=3)
+# Formatting values as %
+def func(pct, allvals):
+    absolute = int(pct/100.*np.sum(allvals))
+    return "{:.1f}%)".format(pct)
 
-fig.tight_layout()
+# pie chart labels
+wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
+                                  textprops=dict(color="w"))
+
+# legend label and position, pie chat font and title
+ax.legend(wedges, Major_Discipline,
+          title="Major Discipline",
+          loc="center left",
+          bbox_to_anchor=(1, 0, 0.5, 1))
+
+plt.setp(autotexts, size=6, weight="bold")
+
+ax.set_title("Major Discipline")
 
 plt.show()
-
-
-

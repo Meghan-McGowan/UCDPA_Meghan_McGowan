@@ -1,33 +1,22 @@
-import pandas as pd
-#Create Lists
-female_education1 = {'education_level': 'Masters', 'major-disciplne': 'STEM'}
-female_education2 = {'education_level': 'Graduate', 'major-disciplne': 'Business Degree'}
-female_education3 = {'education_level': 'Graduate', 'major-disciplne': 'STEM'}
-female_education =[female_education1,female_education2,female_education3]
 
-male_education1 = {'education_level': 'Masters', 'major-disciplne': 'STEM'}
-male_education2 = {'education_level': 'Graduate', 'major-disciplne': 'Business Degree'}
-male_education3 = {'education_level': 'Masters', 'major-disciplne': 'STEM'}
-male_education =[male_education1,male_education2,male_education3]
+# The below function shows the number of male and females searching for a job. These results are taken from the Target by Gender visulisation
+def job_search(female, male):
+    total_count = female + male
+    return total_count
 
-#Iterate through the rows using a loop
-for i in female_education:
-    print(i)
+female = 326
+male = 3012
 
-#Iterate through the rows by the education_level key
-for i in female_education:
-    print(i['education_level'])
+total_count = job_search(female,male)
+print("The total number of males and females searching for a job is", total_count)
 
-#Loop and condition
-selected_education_level = {}
-education_level_lookup = "Masters"
-for i in female_education:
-        if i['education_level'] == education_level_lookup:
-            selected_education_level = i
+# The below function shows the number of male and females who have relevant experiance. These results are taken from the Relevant Experiance visulisation
 
-print(selected_education_level)
+female = 963
+male = 11065
 
-
+total_count = job_search(female,male)
+print("The total number of males and females who have relevant experience is", total_count)
 
 
 
