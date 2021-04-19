@@ -10,7 +10,7 @@ print(test_data)
 print(train_data.head())
 print(train_data.info())
 
-#Test dataframe analysis
+# Test dataframe analysis
 print(test_data.head())
 print(test_data.info())
 
